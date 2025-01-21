@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct TrackizerApp: App {
+    @StateObject private var coordinator = NavigationCoordinator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationWrapperView()
+                .environmentObject(coordinator).ignoresSafeArea()
         }
     }
 }
