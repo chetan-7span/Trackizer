@@ -35,7 +35,7 @@ struct CustomButton: View {
             .frame(maxWidth: .infinity) // Make the button full width
             .background(backgroundColor)
             .clipShape(Capsule())
-            .shadow(color: shadowColor.opacity(0.8), radius: 12, x: 0, y: 4) // Add shadow effect
+            .shadow(color: shadowColor.opacity(0.8), radius: 8, x: 0, y: 4) // Add shadow effect
         }
         .buttonStyle(PlainButtonStyle())
     }
