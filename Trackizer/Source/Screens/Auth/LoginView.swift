@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     @State private var password: String = ""
     @State private var email: String = ""
     @State private var isRememberMe: Bool = false
@@ -69,7 +70,7 @@ struct LoginView: View {
                 foregroundColor: .white,
                 shadowColor: DesignSystem.Colors.orange
             ) {
-                
+                coordinator.push(CustomTabBar())
             }
         }.padding(.top)
     }
@@ -88,7 +89,7 @@ struct LoginView: View {
                 foregroundColor: .white,
                 shadowColor: DesignSystem.Colors.white.opacity(0.10)
             ) {
-                
+                coordinator.push(SignUpView(coordinator: coordinator))
             }
             
         }
@@ -96,5 +97,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(coordinator: NavigationCoordinator())
 }

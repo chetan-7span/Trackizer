@@ -1,5 +1,5 @@
 //
-//  CalenderView.swift
+//  CalendarView.swift
 //  Trackizer
 //
 //  Created by Chetan Hedamba on 22/01/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalenderView: View {
+struct CalendarView: View {
     var body: some View {
         Text("Calendar Screen")
                     .foregroundColor(.white)
@@ -15,5 +15,5 @@ struct CalenderView: View {
 }
 
 #Preview {
-    CalenderView()
+    CalendarView()
 }

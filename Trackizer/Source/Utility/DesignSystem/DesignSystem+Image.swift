@@ -16,5 +16,9 @@ extension DesignSystem {
         static let clearCircleFilledImage = Image(.clearCircleFilled)
         static let unCheckedBox = Image(.icnUnChecked)
         static let checkedBox = Image(.icnChecked)
+        static let tabbarBg = Image(.tabbarBg)
+        static let spotifyLogo = Image(.spotifyLogo)
+        static let youTubeLgoo = Image(.youTubeLgoo)
+        static let oneDriveLogo = Image(.oneDriveLogo)
     }
 }

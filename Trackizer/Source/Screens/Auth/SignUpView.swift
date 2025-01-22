@@ -92,7 +92,7 @@ struct SignUpView: View {
                 foregroundColor: .white,
                 shadowColor: DesignSystem.Colors.white.opacity(0.10)
             ) {
-                coordinator.push(LoginView())
+                coordinator.push(LoginView(coordinator: coordinator))
             }
             
         }

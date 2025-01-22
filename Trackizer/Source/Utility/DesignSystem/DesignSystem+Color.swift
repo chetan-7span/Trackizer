@@ -14,8 +14,12 @@ public struct DesignSystem {
         static let orange = Color(hex: "#FF7966")
         static let fbBg = Color(hex: "#1771E6")
         static let white = Color(hex: "#FFFFFF")
+        static let grey = Color(hex: "#4E4E61")
+        static let grey30 = Color(hex: "#A2A2B5")
+        static let grey40 = Color(hex: "#83839C")
         static let grey50 = Color(hex: "#666680")
         static let grey70 = Color(hex: "#353542")
         static let dangerDefault = Color(hex: "#DB3000")
+        
     }
 }
