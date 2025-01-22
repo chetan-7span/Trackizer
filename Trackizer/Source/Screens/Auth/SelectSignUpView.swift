@@ -73,7 +73,7 @@ struct SelectSignUpView: View {
             foregroundColor: DesignSystem.Colors.white,
             shadowColor: DesignSystem.Colors.white.opacity(0.10)
         ) {
-            print("Sign up with E-mail")
+            coordinator.push(SignUpView(coordinator: coordinator))
         }
     }
     //MARK: Description

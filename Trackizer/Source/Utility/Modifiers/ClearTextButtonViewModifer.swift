@@ -26,6 +26,9 @@ private struct ClearTextButtonViewModifer: ViewModifier {
             HStack {
                 Spacer()
                 DesignSystem.Images.clearCircleFilledImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20,height: 20)
                     .accessibilityIdentifier(accessibilityId)
                     .onTapGesture {
                         text.removeAll()

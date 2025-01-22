@@ -44,7 +44,6 @@ struct WelcomeView: View {
                 shadowColor: DesignSystem.Colors.orange
             ) {
                 coordinator.push(SelectSignUpView(coordinator: coordinator))
-
             }
             
             CustomButton(
@@ -54,7 +53,7 @@ struct WelcomeView: View {
                 foregroundColor: .white,
                 shadowColor: DesignSystem.Colors.white.opacity(0.10)
             ) {
-                print("Get started tapped")
+                coordinator.push(LoginView())
             }
             
         }

@@ -30,7 +30,7 @@ public struct InputFieldView: View {
     }
 
     // MARK: - Constants
-    let cornerRaidus = 8.0
+    let cornerRaidus = 16.0
 
     // MARK: - Properties
     @Binding var text: String
@@ -59,18 +59,18 @@ public struct InputFieldView: View {
     // MARK: - Computed Properties
     var borderColor: Color {
         if isFocused {
-            return (DesignSystem.Colors.infoLighter)
+            return (DesignSystem.Colors.orange)
         }else if isDisabled {
-            return (DesignSystem.Colors.borderCl)
+            return (DesignSystem.Colors.grey50)
         }else {
             return errorMessage.isEmpty ?? true ?
-            (DesignSystem.Colors.neutrals10) :
+            (DesignSystem.Colors.grey70) :
             (DesignSystem.Colors.dangerDefault)
         }
     }
     
     var backgroundColor: Color {
-        return isDisabled ?  (DesignSystem.Colors.neutrals10) : Color.clear
+        return isDisabled ?  (DesignSystem.Colors.grey50) : Color.clear
     }
 
     var shouldShowError: Bool {
@@ -104,9 +104,9 @@ public struct InputFieldView: View {
         TextField("",
                   text: $text,
                   prompt:
-                    Text(placeholder)
-            .foregroundColor(Color(.systemGray))
-        ).font(Font.preferredFontStyle(.body, .regular))
+                    Text(placeholder).foregroundColor(DesignSystem.Colors.grey70)
+        ).foregroundColor(DesignSystem.Colors.white)
+        .font(Font.preferredFontStyle(.body, .regular))
      
         .onReceive(Just(text)) { _ in
             text = mask?.text(text) ?? text

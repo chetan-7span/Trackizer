@@ -13,5 +13,8 @@ extension DesignSystem {
         static let appleLogo = Image(.apple)
         static let googleLogo = Image(.google)
         static let facebookLogo = Image(.facebook)
+        static let clearCircleFilledImage = Image(.clearCircleFilled)
+        static let unCheckedBox = Image(.icnUnChecked)
+        static let checkedBox = Image(.icnChecked)
     }
 }
