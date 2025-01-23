@@ -22,8 +22,10 @@ struct AppBackgroundView: View {
     //MARK: - Background view
     @ViewBuilder
     var backgroundView : some View {
-        Color(DesignSystem.Colors.appBg)
-            .edgesIgnoringSafeArea(.all)
+        ZStack{
+            Color(DesignSystem.Colors.appBg)
+                .edgesIgnoringSafeArea(.all)
+        }
     }
     
     //MARK: - Welcome Background view
@@ -37,5 +39,5 @@ struct AppBackgroundView: View {
 }
 
 #Preview {
-    AppBackgroundView(useWelcomeBackground: true)
+    AppBackgroundView(useWelcomeBackground: false)
 }

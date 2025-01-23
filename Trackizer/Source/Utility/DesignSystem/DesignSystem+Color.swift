@@ -12,6 +12,7 @@ public struct DesignSystem {
     public struct Colors {
         static let appBg = Color(hex: "#1C1C23")
         static let orange = Color(hex: "#FF7966")
+        static let orangeLight = Color(hex: "#FF7F37")
         static let fbBg = Color(hex: "#1771E6")
         static let white = Color(hex: "#FFFFFF")
         static let grey = Color(hex: "#4E4E61")
@@ -20,6 +21,9 @@ public struct DesignSystem {
         static let grey50 = Color(hex: "#666680")
         static let grey70 = Color(hex: "#353542")
         static let dangerDefault = Color(hex: "#DB3000")
+        static let purple = Color(hex: "#AD7BFF")
+        static let skyBlue = Color(hex: "#7DFFEE")
         
+        static let twoColors = [Colors.orangeLight, Colors.orange]
     }
 }
