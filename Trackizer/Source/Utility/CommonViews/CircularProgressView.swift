@@ -26,7 +26,7 @@ struct SemiCircularProgressView: View {
                 )
                 .shadow(color: DesignSystem.Colors.orange, radius: 15, x: 0, y: 5)
                 .rotationEffect(.degrees(35))
-            
+                
             
             VStack {
                 HeaderLogoView().padding(.top,-30)

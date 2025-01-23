@@ -20,7 +20,7 @@ struct CustomTabBar: View {
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
             VStack{
-                Spacer()
+                Spacer(minLength: 44)
                 switch selectedTab {
                 case .home:
                     HomeView()

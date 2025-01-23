@@ -20,5 +20,11 @@ extension DesignSystem {
         static let spotifyLogo = Image(.spotifyLogo)
         static let youTubeLgoo = Image(.youTubeLgoo)
         static let oneDriveLogo = Image(.oneDriveLogo)
+        static let netflixLogo = Image(.netflixLogo)
+        static let mainCard = Image(.mainCard)
+        static let masterCardLogo = Image(.masterCardLogo)
+        static let chip = Image(.chip)
+        static let settings = Image(.settings)
+        static let icnAdd = Image(.icnAdd)
     }
 }

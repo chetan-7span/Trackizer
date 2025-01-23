@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selectedTab = 0
-    
+    @State private var progress = 0.0
     var body: some View {
         ZStack {
             // Background
@@ -18,9 +18,14 @@ struct HomeView: View {
                 ZStack{
                     backgrundView
                     VStack{
+                        Spacer(minLength: 44)
                         headerView
-                        SemiCircularProgressView(progress: 0.6)
-                        
+                        SemiCircularProgressView(progress: progress)
+                            .onAppear {
+                                withAnimation(.easeInOut(duration: 1)) {
+                                    progress = 0.7
+                                }
+                            }
                         VStack(spacing:20){
                             seeYourBudgetButton
                             HStack(spacing:10) {
@@ -57,11 +62,8 @@ struct HomeView: View {
             Button(action: {
                 // Settings action
             }) {
-                Image(systemName: "gearshape.fill")
-                    .foregroundColor(.white)
-                    .font(.title2)
+                DesignSystem.Images.settings
             }
-            .padding()
         }
     }
     var backgrundView : some View {

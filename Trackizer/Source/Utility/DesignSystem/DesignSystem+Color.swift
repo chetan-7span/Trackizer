@@ -23,7 +23,8 @@ public struct DesignSystem {
         static let dangerDefault = Color(hex: "#DB3000")
         static let purple = Color(hex: "#AD7BFF")
         static let skyBlue = Color(hex: "#7DFFEE")
-        
+        static let card1 = Color(hex: "#434352")
+        static let card2 = Color(hex: "#2c2c36")
         static let twoColors = [Colors.orangeLight, Colors.orange]
     }
 }
