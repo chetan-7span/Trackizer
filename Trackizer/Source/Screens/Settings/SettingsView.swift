@@ -9,23 +9,15 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var coordinator: NavigationCoordinator
-    @State private var iCloudSync = false
-    @State private var sortingOption = "Date"
-    @State private var summaryOption = "Average"
-    @State private var currencyOption = "USD ($)"
-    @State private var appIconOption = "Default"
-    @State private var themeOption = "Dark"
-    
+
     var body: some View {
-        
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
-            VStack(spacing : 20) {
+            VStack {
                 headerView
                 profileView
                 settingsList
-            }.padding()
-            
+            }.padding(.horizontal)
         }
     }
     

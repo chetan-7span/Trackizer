@@ -26,9 +26,9 @@ struct CustomTabBar: View {
                 case .home:
                     HomeView(coordinator: coordinator)
                 case .grid:
-                    SpendingAndBudgetsView()
+                    SpendingAndBudgetsView(coordinator: coordinator)
                 case .calendar:
-                    CalendarView()
+                    CalendarView(coordinator: coordinator)
                 case .wallet:
                     CreditCardsView(coordinator: coordinator)
                 case .add:

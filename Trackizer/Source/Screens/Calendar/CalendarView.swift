@@ -8,16 +8,31 @@
 import SwiftUI
 
 struct CalendarView: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     var body: some View {
-        VStack{
-            HeaderView(title: "Calendar",showSettingsButton: true) {
-                print("Setting Tapped")
-            }
-            Spacer()
+        ZStack {
+            AppBackgroundView(useWelcomeBackground: false)
+            VStack {
+                headerView
+                Spacer()
+            }.padding()
         }
+    }
+    
+    //MARK: - Header View
+    @ViewBuilder
+    var headerView: some View {
+        HeaderView(
+            title: "Calendar",
+            showSettingsButton: true,
+            settingsAction: {
+                print("Settings button tapped")
+                coordinator.push(SettingsView(coordinator: coordinator))
+            }
+        )
     }
 }
 
 #Preview {
-    CalendarView()
+    CalendarView(coordinator: NavigationCoordinator())
 }
