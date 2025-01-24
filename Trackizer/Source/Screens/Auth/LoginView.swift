@@ -16,7 +16,7 @@ struct LoginView: View {
         ZStack{
             AppBackgroundView(useWelcomeBackground: false)
             VStack(spacing: 20) {
-                HeaderLogoView()
+                HeaderView(appLogo: DesignSystem.Images.headerLogo)
                 Spacer()
                 inputFields
                 remeberMeAndForgotPassword
@@ -70,7 +70,7 @@ struct LoginView: View {
                 foregroundColor: .white,
                 shadowColor: DesignSystem.Colors.orange
             ) {
-                coordinator.push(CustomTabBar())
+                coordinator.push(CustomTabBar(coordinator: coordinator))
             }
         }.padding(.top)
     }

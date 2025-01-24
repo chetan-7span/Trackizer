@@ -14,7 +14,7 @@ struct SelectSignUpView: View {
         ZStack{
             AppBackgroundView(useWelcomeBackground: false)
             VStack{
-                HeaderLogoView()
+                HeaderView(appLogo: DesignSystem.Images.headerLogo)
                 Spacer()
                 socialSignUpButtons
                 Text("or").font(.title2).foregroundColor(.white).padding(.vertical, 30)

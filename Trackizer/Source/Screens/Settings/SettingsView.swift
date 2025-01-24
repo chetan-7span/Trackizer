@@ -8,25 +8,35 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     var body: some View {
         
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
-            backgrundView.ignoresSafeArea()
             ScrollView{
                 VStack(spacing : 40) {
                     headerView
-                    cardsView.padding(.top)
-                    subscriptionsView
-                    dottedBorderButton.padding(.top)
                 }.padding()
                 Spacer(minLength: 60)
             }
             
         }
     }
+    
+    //MARK: - Header View
+    @ViewBuilder
+    var headerView: some View {
+        HeaderView(
+            title: "Settings",
+            showBackButton: true,
+            backButtonAction: {
+                print("Back button tapped")
+                coordinator.pop()
+            }
+        )
+    }
 }
 
 #Preview {
-    SwiftUIView()
+    SettingsView(coordinator: NavigationCoordinator())
 }

@@ -26,5 +26,6 @@ extension DesignSystem {
         static let chip = Image(.chip)
         static let settings = Image(.settings)
         static let icnAdd = Image(.icnAdd)
+        static let icnBack = Image(.back)
     }
 }

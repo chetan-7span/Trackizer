@@ -31,13 +31,14 @@ struct SemiCircularProgressView: View {
             VStack {
                 HeaderLogoView().padding(.top,-30)
                 Text("$1,235")
-                    .font(.largeTitle)
+                    .font(.system(size: 40))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 Text("This month bills")
+                    .font(.system(size: 12))
                     .foregroundColor(DesignSystem.Colors.grey40)
             }
-        }.padding()
+        }//.padding()
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreditCardsView: View {
-    // Dynamic properties for the card
+    @ObservedObject var coordinator: NavigationCoordinator
     @State var cardHolderName: String = "John Doe"
     @State var cardNumber: String = "**** **** **** 2197"
     @State var expirationDate: String = "08/28"
@@ -18,35 +18,31 @@ struct CreditCardsView: View {
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
             backgrundView.ignoresSafeArea()
-            ScrollView{
-                VStack(spacing : 40) {
-                    headerView
-                    cardsView.padding(.top)
-                    subscriptionsView
-                    dottedBorderButton.padding(.top)
-                }.padding()
-                Spacer(minLength: 60)
-            }
-            
+            VStack {
+                headerView
+                ScrollView{
+                    VStack(spacing : 40) {
+                        cardsView.padding(.top)
+                        subscriptionsView
+                        dottedBorderButton.padding(.top)
+                    }
+                    Spacer(minLength: 60)
+                }
+            }.padding()
         }
     }
     
     //MARK: - Header View
     @ViewBuilder
     var headerView: some View {
-        HStack {
-            Spacer()
-            Text("Credit Cards")
-                .font(.body)
-                .foregroundColor(DesignSystem.Colors.grey50)
-                .offset(x:15)
-            Spacer()
-            Button(action: {
-                // Settings action
-            }) {
-                DesignSystem.Images.settings
+        HeaderView(
+            title: "Credit Cards",
+            showSettingsButton: true,
+            settingsAction: {
+                print("Settings button tapped")
+                coordinator.push(SettingsView(coordinator: coordinator))
             }
-        }
+        )
     }
 
     
@@ -172,5 +168,5 @@ struct CreditCardsView: View {
 }
 
 #Preview {
-    CreditCardsView()
+    CreditCardsView(coordinator: NavigationCoordinator())
 }

@@ -14,7 +14,7 @@ struct WelcomeView: View {
             ZStack{
                 AppBackgroundView(useWelcomeBackground: true)
                 VStack{
-                    HeaderLogoView()
+                    HeaderView(appLogo: DesignSystem.Images.headerLogo)
                     Spacer()
                     descriptionView.padding(.bottom,20)
                     bottomButtons

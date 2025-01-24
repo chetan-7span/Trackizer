@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct CustomTabBar: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     @State private var selectedTab: Tab = .home
     
     enum Tab {
@@ -23,15 +24,15 @@ struct CustomTabBar: View {
                 Spacer(minLength: 44)
                 switch selectedTab {
                 case .home:
-                    HomeView()
+                    HomeView(coordinator: coordinator)
                 case .grid:
                     SpendingAndBudgetsView()
                 case .calendar:
                     CalendarView()
                 case .wallet:
-                    CreditCardsView()
+                    CreditCardsView(coordinator: coordinator)
                 case .add:
-                    CreditCardsView()//AddView() // If you want a separate view for "Add"
+                    CreditCardsView(coordinator: coordinator)//AddView() // If you want a separate view for "Add"
                 }
                 Spacer()
                 
@@ -111,5 +112,5 @@ struct TabButton: View {
 
 
 #Preview {
-    CustomTabBar()
+    CustomTabBar(coordinator: NavigationCoordinator())
 }

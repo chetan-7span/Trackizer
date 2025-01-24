@@ -9,8 +9,12 @@ import SwiftUI
 
 struct CalendarView: View {
     var body: some View {
-        Text("Calendar Screen")
-                    .foregroundColor(.white)
+        VStack{
+            HeaderView(title: "Calendar",showSettingsButton: true) {
+                print("Setting Tapped")
+            }
+            Spacer()
+        }
     }
 }
 

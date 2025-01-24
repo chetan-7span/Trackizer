@@ -8,86 +8,73 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     @State private var selectedTab = 0
     @State private var progress = 0.0
     var body: some View {
         ZStack {
-            // Background
             AppBackgroundView(useWelcomeBackground: false)
-            ScrollView{
-                ZStack{
-                    backgrundView
-                    VStack{
-                        Spacer(minLength: 44)
-                        headerView
-                        SemiCircularProgressView(progress: progress)
-                            .onAppear {
-                                withAnimation(.easeInOut(duration: 1)) {
-                                    progress = 0.7
-                                }
-                            }
-                        VStack(spacing:20){
-                            seeYourBudgetButton
-                            HStack(spacing:10) {
-                                statCard(title: "Active subs", value: "12", color: DesignSystem.Colors.orange)
-                                statCard(title: "Highest subs", value: "$19.99",color: DesignSystem.Colors.purple)
-                                statCard(title: "Lowest subs", value: "$5.99",color: DesignSystem.Colors.skyBlue)
-                            }
-                            
-                            tabSection.padding(.top,40)
-                            
-                            if selectedTab == 0{
-                                yourSubscriptionView
-                            }else{
-                                upcomingBillsView
-                            }
-                            
-                            
-                        }.padding(.top,-120)
-                        
-                        Spacer()
+            backgrundView
+            VStack{
+                headerView
+                
+                SemiCircularProgressView(progress: progress)
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 1)) {
+                            progress = 0.7
+                        }
                     }
-                    .padding()
+                VStack(spacing:30){
+                    seeYourBudgetButton
+                    subcriptionsViews
+                }.padding(.top,-80)
+                
+                ScrollView{
+                    VStack(spacing:20){
+                        tabSection.padding(.top,40)
+                        
+                        if selectedTab == 0{
+                            yourSubscriptionView
+                        }else{
+                            upcomingBillsView
+                        }
+                    }
+                    Spacer(minLength: 60)
                 }
-                Spacer(minLength: 60)
-            }
-        }.ignoresSafeArea()
+            }.padding()
+        }
     }
     
     // MARK: - Components
     var headerView : some View {
-        // Header Section
-        HStack {
-            Spacer()
-            Button(action: {
-                // Settings action
-            }) {
-                DesignSystem.Images.settings
+        HeaderView(
+            showSettingsButton: true,
+            settingsAction: {
+                coordinator.push(SettingsView(coordinator: coordinator))
             }
-        }
+        )
     }
     var backgrundView : some View {
         GeometryReader { geometry in
-            // Background layers
             VStack(spacing: 0) {
-                // Black background
                 Color(DesignSystem.Colors.grey70)
-                    .frame(height: geometry.size.height * 0.58)
+                    .frame(height: geometry.size.height * 0.64)
                     .cornerRadius(24)
-                // White background
                 Color(DesignSystem.Colors.appBg)
             }
             .edgesIgnoringSafeArea(.all)
         }
     }
+    
     @ViewBuilder
     var seeYourBudgetButton: some View {
         Button(action: {
-            // See your budget action
+            
         }) {
             Text("See your budget")
                 .foregroundColor(.white)
-                .font(.headline)
+                .font(.system(size: 12))
+                .fontWeight(.semibold)
                 .padding(.vertical,10)
                 .padding(.horizontal,20)
                 .background(
@@ -96,7 +83,7 @@ struct HomeView: View {
                 )
                 .overlay(
                     Capsule()
-                        .trim(from: 0, to: 1)  // Create the partial border effect
+                        .trim(from: 0, to: 1)
                         .stroke(
                             LinearGradient(
                                 gradient: Gradient(colors: [DesignSystem.Colors.grey50, .clear]),
@@ -106,6 +93,15 @@ struct HomeView: View {
                             lineWidth: 1
                         )
                 )
+        }
+    }
+    
+    @ViewBuilder
+    var subcriptionsViews: some View {
+        HStack(spacing:10) {
+            statCard(title: "Active subs", value: "12", color: DesignSystem.Colors.orange)
+            statCard(title: "Highest subs", value: "$19.99",color: DesignSystem.Colors.purple)
+            statCard(title: "Lowest subs", value: "$5.99",color: DesignSystem.Colors.skyBlue)
         }
     }
     @ViewBuilder
@@ -159,25 +155,27 @@ struct HomeView: View {
             DesignSystem.Colors.grey.opacity(0.40)
                 .cornerRadius(15)
             
-            VStack {
+            VStack(spacing: 5){
                 Text(title)
                     .foregroundColor(DesignSystem.Colors.grey40)
+                    .font(.system(size: 12))
                 Text(value)
                     .foregroundColor(DesignSystem.Colors.white)
+                    .font(.system(size: 14))
                     .fontWeight(.bold)
             }
             VStack {
                 Rectangle()
-                    .fill(color) // Replace with your desired color
-                    .frame(width: 50, height: 1) // Adjust width and height
-                    .cornerRadius(2) // Optional: To round the edges of the line
-                    .offset(y: -40) // Adjust the vertical position to align with the card's top
+                    .fill(color)
+                    .frame(width: 50, height: 1)
+                    .cornerRadius(2)
+                    .offset(y: -28)
             }
         }
-        .frame(height: 80) // Set the size of the card
+        .frame(height: 55)
         .overlay(
             RoundedRectangle(cornerRadius: 15)
-                .trim(from: 0, to: 0.685)  // Create the partial border effect
+                .trim(from: 0, to: 0.685)
                 .stroke(
                     LinearGradient(
                         gradient: Gradient(colors: [DesignSystem.Colors.grey50, .clear]),
@@ -213,25 +211,26 @@ struct HomeView: View {
             }
             
             Text(name)
+                .font(.system(size: 14))
+                .fontWeight(.semibold)
                 .foregroundColor(.white)
-                .font(.headline)
             
             Spacer()
             
             Text(price)
+                .font(.system(size: 14))
+                .fontWeight(.semibold)
                 .foregroundColor(.white)
-                .font(.headline)
         }
-        .padding()
+        .padding(12)
         .background(DesignSystem.Colors.appBg)
-        //        .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(
-            RoundedRectangle(cornerRadius: 20) // Add a border with rounded corners
+            RoundedRectangle(cornerRadius: 16)
                 .stroke(DesignSystem.Colors.grey50, lineWidth: 1)
         )
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(coordinator: NavigationCoordinator())
 }
