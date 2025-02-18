@@ -21,8 +21,7 @@ struct BudgetProgressView: View {
         var currentAngle: Double = 180 // Start from the bottom
         
         for (index, segment) in progressSegments.enumerated() {
-            let amount = index == 0 ? segment.amount - totalSpacing : segment.amount
-            let segmentAngle = (amount / budget) * availableDegrees // FIXED: Now based on budget
+            let segmentAngle = (segment.amount / budget) * availableDegrees
             
             if index > 0 {
                 currentAngle += spacingDegrees // Add spacing after first segment
@@ -31,9 +30,6 @@ struct BudgetProgressView: View {
             let endAngle = currentAngle + segmentAngle
             angles.append((start: currentAngle, end: endAngle, color: segment.color))
             currentAngle = endAngle
-            
-            print("start : \(currentAngle)")
-            print("end : \(endAngle)")
         }
         
         
@@ -71,7 +67,7 @@ struct BudgetProgressView: View {
             }
             .padding(.top,-60)
         }
-        .frame(width: 200, height: 200)
+        .frame(width: 210, height: 210)
         
     }
 }

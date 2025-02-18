@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Auto & Transport.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

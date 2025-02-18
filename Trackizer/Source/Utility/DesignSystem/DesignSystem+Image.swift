@@ -29,12 +29,16 @@ extension DesignSystem {
         static let icnBack                 = Image(.back)
         static let avatar                  = Image(.avatar)
         
-        static let appIcon                  = Image(.appIcon)
-        static let chart                  = Image(.chart)
+        static let appIcon                 = Image(.appIcon)
+        static let chart                   = Image(.chart)
         static let faceID                  = Image(.faceID)
         static let iCloud                  = Image(.iCloud)
-        static let lightTheme                  = Image(.lightTheme)
-        static let money                  = Image(.money)
-        static let sorting                  = Image(.sorting)
+        static let lightTheme              = Image(.lightTheme)
+        static let money                   = Image(.money)
+        static let sorting                 = Image(.sorting)
+        
+        static let autoTransport           = Image(.autoTransport)
+        static let entertainment           = Image(.entertainment)
+        static let security                = Image(.security)
     }
 }
