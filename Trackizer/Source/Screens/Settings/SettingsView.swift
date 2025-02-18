@@ -119,8 +119,7 @@ struct SettingsView: View {
     var appearanceSectionView: some View {
         SettingsSection(title: "Appearance") {
             SettingsRow(title: "App icon", subtitle: "Default", icon: DesignSystem.Images.appIcon)
-            SettingsRow(title: "Theme", subtitle: "Average", icon: DesignSystem.Images.chart)
-            SettingsRow(title: "Default currency", subtitle: "Dark", icon: DesignSystem.Images.lightTheme)
+            SettingsRow(title: "Theme", subtitle: "Average", icon: DesignSystem.Images.lightTheme)
         }
     }
 }

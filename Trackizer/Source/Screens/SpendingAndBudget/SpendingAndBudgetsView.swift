@@ -13,7 +13,16 @@ struct SpendingAndBudgetsView: View {
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
             VStack {
-                headerView
+                headerView.padding(.bottom,20)
+                
+                BudgetProgressView(
+                    budget: 2000,
+                    progressSegments: [
+                        (amount: 1000, color: .mint),
+                        (amount: 500, color: .orange),
+                        (amount: 500, color: .purple)
+                    ]
+                )
                 Spacer()
             }.padding()
         }
