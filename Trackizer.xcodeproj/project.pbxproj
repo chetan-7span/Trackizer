@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXFileReference section */
@@ -11,11 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		61EBEA8F2D3E79FF00E1BEDE /* Trackizer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Trackizer;
-			sourceTree = "<group>";
-		};
+		61EBEA8F2D3E79FF00E1BEDE /* Trackizer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Trackizer; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +82,7 @@
 				};
 			};
 			buildConfigurationList = 61EBEA882D3E79FE00E1BEDE /* Build configuration list for PBXProject "Trackizer" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,7 +91,6 @@
 			);
 			mainGroup = 61EBEA842D3E79FE00E1BEDE;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 61EBEA8E2D3E79FF00E1BEDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
