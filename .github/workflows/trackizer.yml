@@ -45,6 +45,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: iOS-Build
-          path: build/YourApp.xcarchive
+          path: build/Trackizer.xcarchive
 
 
