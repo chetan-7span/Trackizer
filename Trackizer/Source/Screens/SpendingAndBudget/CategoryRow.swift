@@ -49,6 +49,7 @@ struct CategoryRow: View {
                 .accentColor(progressColor)
                 .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding(.top,10)
+            
         }
         .padding()
         .background(DesignSystem.Colors.grey.opacity(0.20))

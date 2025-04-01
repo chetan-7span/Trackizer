@@ -40,5 +40,10 @@ extension DesignSystem {
         static let autoTransport           = Image(.autoTransport)
         static let entertainment           = Image(.entertainment)
         static let security                = Image(.security)
+        
+        static let dosa                = Image(.dosa)
+        static let idali                = Image(.idali)
+        static let sambar                = Image(.sambar)
+        static let chutney                = Image(.chutney)
     }
 }

@@ -17,31 +17,24 @@ struct SpendingAndBudgetsView: View {
     var body: some View {
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
+            
             VStack {
                 headerView.padding(.bottom,20)
-                
-                BudgetProgressView(
-                    budget: 2000,
-                    progressSegments: [
-                        (amount: 300, color: .mint),
-                        (amount: 500, color: .orange),
-                        (amount: 700, color: .purple)
-                    ]
-                )
-                .padding(.bottom,-50)
-                
+                BudgetProgressView(budget: 2000, progressSegments: [(amount : 300,color:.mint),(amount : 300,color:.orange),(amount : 300,color:.purple)])
+                    .padding(.bottom,-50)
                 yourBudgetAreOnTrack
                 
                 ScrollView {
                     VStack(spacing: 10) {
-                        ForEach(categories, id: \.1) { category in
+                        ForEach(categories,id:\.1) { category in
                             CategoryRow(icon: category.0, title: category.1, spent: category.2, total: category.3, progressColor: category.4)
+                            
                         }
                     }
-                    .padding(.vertical)
                 }
                 Spacer()
             }.padding()
+            
         }
     }
     

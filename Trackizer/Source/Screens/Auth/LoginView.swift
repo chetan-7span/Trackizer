@@ -33,6 +33,7 @@ struct LoginView: View {
         VStack(spacing: 20) {
             InputFieldView(text: $email, placeholder: "Email", errorMessage: .constant(""), title: "Email Address", accessibilityIdPrefix: "")
             PasswordInputFiled(text: $password, placeholder: "Password", title: "Password", accessibilityIdPrefix: "")
+            
         }
     }
     

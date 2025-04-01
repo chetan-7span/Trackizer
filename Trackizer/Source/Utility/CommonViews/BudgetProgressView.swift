@@ -68,7 +68,6 @@ struct BudgetProgressView: View {
             .padding(.top,-60)
         }
         .frame(width: 210, height: 210)
-        
     }
 }
 

@@ -17,7 +17,9 @@ struct SettingsView: View {
                 headerView
                 profileView
                 settingsList
-            }.padding(.horizontal)
+                Spacer()
+               
+            }
         }
     }
     
@@ -66,18 +68,7 @@ struct SettingsView: View {
                         Capsule()
                             .fill(DesignSystem.Colors.grey.opacity(0.40))
                     )
-                    .overlay(
-                        Capsule()
-                            .trim(from: 0, to: 1)
-                            .stroke(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [DesignSystem.Colors.grey50, .clear]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ),
-                                lineWidth: 1
-                            )
-                    )
+                    .gradientTrimOverlay()
             }
             
         }
@@ -92,7 +83,7 @@ struct SettingsView: View {
             appearanceSectionView
         }
         .scrollContentBackground(.hidden)
-//        .listStyle(PlainListStyle())
+//
     }
     
     //MARK: General section view

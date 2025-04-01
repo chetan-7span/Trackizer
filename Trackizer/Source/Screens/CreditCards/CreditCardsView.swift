@@ -17,7 +17,7 @@ struct CreditCardsView: View {
         
         ZStack {
             AppBackgroundView(useWelcomeBackground: false)
-            backgrundView.ignoresSafeArea()
+//            backgrundView.ignoresSafeArea() 
             VStack {
                 headerView
                 ScrollView{

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SemiCircularProgressView: View {
     var progress: CGFloat
+    @State private var progress1 = 0.0
     var body: some View {
         ZStack {
             Circle()
@@ -38,15 +39,15 @@ struct SemiCircularProgressView: View {
                     .font(.system(size: 12))
                     .foregroundColor(DesignSystem.Colors.grey40)
             }
-        }//.padding()
+        }.padding()
     }
 }
 
 struct ContentView: View {
     var body: some View {
-        SemiCircularProgressView(progress: 1) // Set progress (e.g., 75%)
+        SemiCircularProgressView(progress: 1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.edgesIgnoringSafeArea(.all)) // Background color
+            .background(Color.black.edgesIgnoringSafeArea(.all)) 
     }
 }
 

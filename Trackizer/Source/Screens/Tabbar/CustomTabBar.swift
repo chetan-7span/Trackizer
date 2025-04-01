@@ -78,6 +78,7 @@ struct CustomTabBar: View {
             // Central Add Button
             Button(action: {
                 // Add button action here
+                coordinator.push(AddSubscriptionView(coordinator: coordinator))
             }) {
                 ZStack {
                     Circle()

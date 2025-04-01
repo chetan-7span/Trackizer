@@ -1,0 +1,50 @@
+name: iOS CI/CD for Trackizer App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build & Test iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+      - name: Install dependencies (CocoaPods)
+        run: pod install --repo-update
+        working-directory: ./ # Change if your Podfile is inside a subfolder
+
+      - name: Build the app
+        run: xcodebuild clean build -workspace YourApp.xcworkspace -scheme YourApp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+      - name: Run tests
+        run: xcodebuild test -workspace YourApp.xcworkspace -scheme YourApp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+      - name: Run SwiftLint (Optional)
+        run: swiftlint
+        continue-on-error: true
+
+      - name: Archive App (Optional)
+        run: |
+          xcodebuild archive \
+          -workspace YourApp.xcworkspace \
+          -scheme YourApp \
+          -archivePath $GITHUB_WORKSPACE/build/YourApp.xcarchive
+
+      - name: Upload Build Artifacts (Optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: iOS-Build
+          path: build/YourApp.xcarchive
+
+
