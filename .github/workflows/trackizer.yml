@@ -25,10 +25,10 @@ jobs:
         working-directory: ./ # Change if your Podfile is inside a subfolder
 
       - name: Build the app
-        run: xcodebuild clean build -workspace YourApp.xcworkspace -scheme YourApp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+        run: xcodebuild clean build -workspace Trackizer.xcworkspace -scheme Trackizer -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
 
       - name: Run tests
-        run: xcodebuild test -workspace YourApp.xcworkspace -scheme YourApp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+        run: xcodebuild test -workspace Trackizer.xcworkspace -scheme Trackizer -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
 
       - name: Run SwiftLint (Optional)
         run: swiftlint
