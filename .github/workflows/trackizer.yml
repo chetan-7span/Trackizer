@@ -22,9 +22,11 @@ jobs:
 
       - name: Build the app
         run: xcodebuild clean build
-         -workspace "Trackizer.xcodeproj"
-         -scheme "Trackizer"
-         -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+        -project "Trackizer.xcodeproj"
+        -scheme "Trackizer"
+        -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+
         
 #         - name: Build App
 #        run: |
