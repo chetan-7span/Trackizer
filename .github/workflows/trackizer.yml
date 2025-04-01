@@ -20,9 +20,6 @@ jobs:
       - name: Set up Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-      - name: Install CocoaPods (if applicable)
-        run: pod install --repo-update
-        working-directory: ./ # Change if Podfile is in a subfolder
 
       - name: Build the App
         run: |
