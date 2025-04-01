@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct LoginView: View  {
     @ObservedObject var coordinator: NavigationCoordinator
     @State private var password: String = ""
     @State private var email: String = ""

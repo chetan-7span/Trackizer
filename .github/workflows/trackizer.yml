@@ -37,9 +37,9 @@ jobs:
       - name: Archive App (Optional)
         run: |
           xcodebuild archive \
-          -workspace YourApp.xcworkspace \
-          -scheme YourApp \
-          -archivePath $GITHUB_WORKSPACE/build/YourApp.xcarchive
+          -workspace Trackizer.xcworkspace \
+          -scheme Trackizer \
+          -archivePath $GITHUB_WORKSPACE/build/Trackizer.xcarchive
 
       - name: Upload Build Artifacts (Optional)
         uses: actions/upload-artifact@v3
