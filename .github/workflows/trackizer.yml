@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15.1.1  # Ensure the latest macOS version
+    runs-on: macos-latest  # Ensure the latest macOS version
 
     steps:
       - name: Checkout code
