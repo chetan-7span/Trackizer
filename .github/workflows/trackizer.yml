@@ -1,31 +1,34 @@
 name: iOS CI/CD for Trackizer App
 
 on:
-    push:
+  push:
     branches:
-        - main
-    pull_request:
+      - main
+  pull_request:
     branches:
-        - main
+      - main
 
 jobs:
-    build:
+  build:
     name: Build & Test iOS App
-    runs-on: macos-15
-    
+    runs-on: macos-latest
+
     steps:
-        - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
-        
-        - name: Set up Xcode
+
+      - name: Set up Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
 
-- name: Build & Test iOS App
-    run: xcodebuild clean build -project Trackizer.xcodeproj -scheme Trackizer -destination "platform=iOS Simulator,name=iPhone 16,OS=latest"
-        
-        
-        - name: Run tests
+      - name: Build the App
+        run: |
+          xcodebuild clean build \
+          -project "Trackizer.xcodeproj" \
+          -scheme "Trackizer" \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+      - name: Run tests
         run: |
           xcodebuild test \
           -project "Trackizer.xcodeproj" \
