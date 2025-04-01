@@ -41,10 +41,4 @@ jobs:
           -scheme Trackizer \
           -archivePath $GITHUB_WORKSPACE/build/Trackizer.xcarchive
 
-      - name: Upload Build Artifacts (Optional)
-        uses: actions/upload-artifact@v3
-        with:
-          name: iOS-Build
-          path: build/Trackizer.xcarchive
-
 
