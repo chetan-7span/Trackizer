@@ -20,12 +20,12 @@ jobs:
       - name: Set up Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-      - name: Build the app
-        run: xcodebuild clean build
-        -project "Trackizer.xcodeproj"
-        -scheme "Trackizer"
-        -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
-
+     - name: Build the App
+  run: |
+    xcodebuild clean build \
+    -project "Trackizer.xcodeproj" \
+    -scheme "Trackizer" \
+    -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
 
         
 #         - name: Build App
